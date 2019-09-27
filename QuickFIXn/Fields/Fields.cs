@@ -25861,4 +25861,17 @@ namespace QuickFix.Fields
     }
 
 
+    /// <summary>
+    /// TRAXISIN Field
+    /// </summary>/
+    public sealed class TRAXISIN : StringField
+    {
+        public TRAXISIN()
+            :base(Tags.TRAXISIN) {}
+        public TRAXISIN(string val)
+            :base(Tags.TRAXISIN, val) {}
+
+    }
+
+
 }

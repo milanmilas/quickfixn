@@ -825,6 +825,7 @@
    <field name='RefreshIndicator' required='N' />
    <component name='ApplicationSequenceControl' required='N' />
    <field name='MDStreamID' required='N' />
+   <field name='TRAXISIN' required='N' />
   </message>
   <message name='MarketDataIncrementalRefresh' msgcat='app' msgtype='X'>
    <field name='MDReqID' required='N' />
@@ -10537,5 +10538,6 @@
   <field number='1619' name='RelationshipRiskEncodedSecurityDesc' type='DATA' />
   <field number='1620' name='RiskEncodedSecurityDescLen' type='LENGTH' />
   <field number='1621' name='RiskEncodedSecurityDesc' type='DATA' />
+  <field number='2100' name='TRAXISIN' type='STRING' />
  </fields>
 </fix>

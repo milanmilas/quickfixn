@@ -6,6 +6,8 @@ using System.Text;
 using QuickFix;
 using QuickFix.Fields;
 
+using QF5SP2 = QuickFix.FIX50SP2;
+
 namespace Executor
 {
     public class Executor : QuickFix.MessageCracker, QuickFix.IApplication
@@ -39,6 +41,11 @@ namespace Executor
         #endregion
 
         #region MessageCracker overloads
+        public void OnMessage(QF5SP2.MarketDataSnapshotFullRefresh m, SessionID s)
+        {
+            var sym = m.Symbol;
+        }
+
         public void OnMessage(QuickFix.FIX40.NewOrderSingle n, SessionID s)
         {
             Symbol symbol = n.Symbol;

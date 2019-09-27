@@ -3487,6 +3487,37 @@ namespace QuickFix
             { 
                 return IsSetField(Tags.MDStreamID);
             }
+            public QuickFix.Fields.TRAXISIN TRAXISIN
+            { 
+                get 
+                {
+                    QuickFix.Fields.TRAXISIN val = new QuickFix.Fields.TRAXISIN();
+                    GetField(val);
+                    return val;
+                }
+                set { SetField(value); }
+            }
+            
+            public void Set(QuickFix.Fields.TRAXISIN val) 
+            { 
+                this.TRAXISIN = val;
+            }
+            
+            public QuickFix.Fields.TRAXISIN Get(QuickFix.Fields.TRAXISIN val) 
+            { 
+                GetField(val);
+                return val;
+            }
+            
+            public bool IsSet(QuickFix.Fields.TRAXISIN val) 
+            { 
+                return IsSetTRAXISIN();
+            }
+            
+            public bool IsSetTRAXISIN() 
+            { 
+                return IsSetField(Tags.TRAXISIN);
+            }
             public class NoSecurityAltIDGroup : Group
             {
                 public static int[] fieldOrder = {Tags.SecurityAltID, Tags.SecurityAltIDSource, 0};

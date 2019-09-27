@@ -1657,5 +1657,6 @@ namespace QuickFix.Fields
         public const int RelationshipRiskEncodedSecurityDesc = 1619;
         public const int RiskEncodedSecurityDescLen = 1620;
         public const int RiskEncodedSecurityDesc = 1621;
+        public const int TRAXISIN = 2100;
     }
 }

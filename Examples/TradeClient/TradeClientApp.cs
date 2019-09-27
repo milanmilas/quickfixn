@@ -2,6 +2,7 @@
 using QuickFix;
 using QuickFix.Fields;
 using System.Collections.Generic;
+using QF5SP2 = QuickFix.FIX50SP2;
 
 namespace TradeClient
 {
@@ -90,6 +91,8 @@ namespace TradeClient
                         QueryReplaceOrder();
                     else if (action == '4')
                         QueryMarketDataRequest();
+                    else if (action == '5')
+                        SendCustomMessage();
                     else if (action == 'g')
                     {
                         if (this.MyInitiator.IsStopped)
@@ -122,6 +125,14 @@ namespace TradeClient
             Console.WriteLine("Program shutdown.");
         }
 
+        private void SendCustomMessage()
+        {
+            var m = new QF5SP2.MarketDataSnapshotFullRefresh();
+            m.Symbol = new Symbol("EUR");
+            m.NoMDEntries = new NoMDEntries(0);
+            this.SendMessage(m);
+        }
+
         private void SendMessage(Message m)
         {
             if (_session != null)
@@ -141,11 +152,12 @@ namespace TradeClient
                 + "2) Cancel Order\n"
                 + "3) Replace Order\n"
                 + "4) Market data test\n"
+                + "5) Custom\n"
                 + "Q) Quit\n"
                 + "Action: "
             );
 
-            HashSet<string> validActions = new HashSet<string>("1,2,3,4,q,Q,g,x".Split(','));
+            HashSet<string> validActions = new HashSet<string>("1,2,3,4,5,q,Q,g,x".Split(','));
 
             string cmd = Console.ReadLine().Trim();
             if (cmd.Length != 1 || validActions.Contains(cmd) == false)
